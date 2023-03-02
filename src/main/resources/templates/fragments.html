@@ -20,13 +20,58 @@
 		<link th:rel="stylesheet"
 			th:href="@{/webjars/font-awesome/6.3.0/css/all.min.css} " />
 
+		<!-- Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap"
+			rel="stylesheet">
 
 	</th:block>
+
+	<!-- NavBar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light nav__style"
+		th:fragment="navBar (pagina)">
+		<div class="container-fluid">
+			<li class="nav-item dropdown" 
+			 th:classappend="${pagina}=='foto' ? text-primary : ''"><a
+				class="nav-link dropdown-toggle" href="#"
+				id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+				aria-expanded="false">Menù Delle Foto</a>
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<li><a class="dropdown-item" th:href="@{/foto}">Pagina Principale</a></li>
+					<li><a class="dropdown-item" th:href="@{/foto/create}">Carica Foto</a></li>
+					<li><a class="dropdown-item" href="#">Something else here</a></li>
+				</ul></li>
+			<li class="nav-item dropdown"
+			th:classappend="${pagina}=='categorie' ? text-primary : ''"><a
+				class="nav-link dropdown-toggle" href="#"
+				id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+				aria-expanded="false"> Categorie </a>
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<li><a class="dropdown-item" href="#">Action</a></li>
+					<li><a class="dropdown-item" href="#">Another action</a></li>
+					<li><a class="dropdown-item" href="#">Something else here</a></li>
+				</ul></li>
+			<li class="nav-item dropdown"
+			th:classappend="${pagina}=='commenti' ? text-primary : ''"><a
+				class="nav-link dropdown-toggle" href="#"
+				id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+				aria-expanded="false"> Commenti </a>
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<li><a class="dropdown-item" href="#">Action</a></li>
+					<li><a class="dropdown-item" href="#">Another action</a></li>
+					<li><a class="dropdown-item" href="#">Something else here</a></li>
+				</ul></li>
+		</div>
+	</nav>
+
+
 
 	<div th:fragment="scriptBootstrap">
 		<script
 			th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
-	</div> 
+	</div>
 
 
 

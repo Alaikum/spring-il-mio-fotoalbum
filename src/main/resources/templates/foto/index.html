@@ -2,25 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Foto Album -inserire User-</title>
 <link th:replace="~{fragments :: bootstrap_myStyle}"></link>
 </head>
 <body>
-	<h2>Lista Foto</h2>
+
 	<div class="container">
+	<div th:replace="~{fragments :: navBar(pagina='foto')}"></div>
+	<h2>Lista Foto</h2>
 		<div class="card-group ">
 			<div class="row row-cols-3 g-4">
 				<div class="col" th:each="f : ${elencoFoto}">
 					<div class="card">
-						<img src="..." class="card-img-top" alt="...">
+						<img th:src="${f.url}" class="card-img-top" alt="...">
 						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">This is a wider card with supporting
-								text below as a natural lead-in to additional content. This
-								content is a little bit longer.</p>
+							<h5 class="card-title" >[[${f.titolo}]]</h5>
+							<p class="card-text">Descrizione: <br><i>[[${f.descrizione}]]</i></p>
+							<p class="card-text">Visibilità:
+							 <i class="fa-solid fa-thumbs-up" th:if="${f.visibile}"></i>
+							 <i class="fa-solid fa-thumbs-down" th:if="!${f.visibile}"></i>
+							 
+							</p>
 						</div>
-						<div class="card-footer">
-							<small class="text-muted">Last updated 3 mins ago</small>
+						<div class="card-footer d-flex justify-content-between">
+							<small class="text-muted">Tag: [[${{f.tag}}]]</small>
+							<a th:href="@{'foto/'+${f.id}}"><small class="text-muted">Dettaglio: <i class="fa-solid fa-circle-info"></i></a></small>
 						</div>
 					</div>
 				</div>

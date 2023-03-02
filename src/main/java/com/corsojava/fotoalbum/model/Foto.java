@@ -43,7 +43,7 @@ public class Foto {
 	
 	
 	
-	@NotEmpty(message = "Attenzione!Campo Vuoto!")
+	
 	@NotNull(message = "Attenzione!Campo nullo!")
 	private Boolean visibile;
 

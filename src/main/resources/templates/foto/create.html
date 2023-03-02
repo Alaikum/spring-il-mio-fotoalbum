@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Carica la tua Foto</title>
+<link th:replace="~{fragments :: bootstrap_myStyle}"></link>
+</head>
+<body>
+
+	<div class="container">
+		<div th:replace="~{fragments :: navBar(pagina='foto')}"></div>
+		<h2>Carica Foto</h2>
+
+		<form id="foto-form" th:object=${foto} th:action="@{/foto/create}"
+			method="POST">
+
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon1">Titolo</span> <input
+					id="titolo" th:field="*{titolo}" th:errorClass="is-invalid"
+					type="text" class="form-control" placeholder="Titolo Della Foto"
+					aria-label="Username" aria-describedby="basic-addon1">
+				<div th:if="${#fields.hasErrors('titolo')}" class="invalid-feedback">
+					<ul>
+						<li th:each="err: ${#fields.errors('titolo')}" th:text="${err}">
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon1">Descrizione</span>
+				<input id="descrizione" th:field="*{descrizione}"
+					th:errorClass="is-invalid" type="text" class="form-control"
+					placeholder="Descrizione Della Foto" aria-label="Username"
+					aria-describedby="basic-addon1">
+				<div th:if="${#fields.hasErrors('descrizione')}"
+					class="invalid-feedback">
+					<ul>
+						<li th:each="err: ${#fields.errors('descrizione')}"
+							th:text="${err}"></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon1">Url</span> <input
+					id="url" th:field="*{url}" th:errorClass="is-invalid" type="text"
+					class="form-control" placeholder="Url Della Foto"
+					aria-label="Username" aria-describedby="basic-addon1">
+				<div th:if="${#fields.hasErrors('url')}" class="invalid-feedback">
+					<ul>
+						<li th:each="err: ${#fields.errors('url')}" th:text="${err}">
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon1">Tag</span> <input
+					id="tag" th:field="*{tag}" th:errorClass="is-invalid" type="text"
+					class="form-control" placeholder="Tag Della Foto"
+					aria-label="Username" aria-describedby="basic-addon1">
+				<div th:if="${#fields.hasErrors('tag')}" class="invalid-feedback">
+					<ul>
+						<li th:each="err: ${#fields.errors('tag')}" th:text="${err}">
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="input-group mb-3">
+				<label class="input-group-text" for="visibile">Visibilità</label>
+				<select class="form-select" id="visibile" th:field="*{visibile}" th:errorClass="is-invalid">
+					<option selected value=true>Visibile</option>
+					<option value=false>Non Visibile</option>
+				</select>
+				<div th:if="${#fields.hasErrors('visibile')}" class="invalid-feedback">
+					<ul>
+						<li th:each="err: ${#fields.errors('visibile')}" th:text="${err}">
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+
+
+
+			<div class="mt-3">
+				<button class="btn btn-dark" type="submit">Carica la tua
+					foto!</button>
+				<a class="btn btn-dark" th:href="@{/foto}"> Annulla</a>
+			</div>
+
+
+		</form>
+	</div>
+
+
+	<div th:replace="~{fragments :: footer}"></div>
+	<div th:replace="~{fragments :: script}"></div>
+</body>
+</html>
