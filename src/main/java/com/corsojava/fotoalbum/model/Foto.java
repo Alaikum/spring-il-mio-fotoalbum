@@ -46,6 +46,84 @@ public class Foto {
 	@NotEmpty(message = "Attenzione!Campo Vuoto!")
 	@NotNull(message = "Attenzione!Campo nullo!")
 	private Boolean visibile;
+
+
+	
+	//SETTER GETTER
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+	public String getTitolo() {
+		return titolo;
+	}
+
+
+
+	public void setTitolo(String titolo) {
+		this.titolo = titolo;
+	}
+
+
+
+	public String getDescrizione() {
+		return descrizione;
+	}
+
+
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+
+
+
+	public String getUrl() {
+		return url;
+	}
+
+
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+
+
+	public String getTag() {
+		return tag;
+	}
+
+
+
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+
+
+
+	public Boolean getVisibile() {
+		return visibile;
+	}
+
+
+
+	public void setVisibile(Boolean visibile) {
+		this.visibile = visibile;
+	}
+	
+	
+	
+	
 	
 	
 	
