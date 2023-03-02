@@ -1,0 +1,10 @@
+INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto1','Bella foto1','https://picsum.photos/200','#foto1',1);
+INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto2','Bella foto2','https://picsum.photos/200','#foto2',1);
+INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto3','Bella foto3','https://picsum.photos/200','#foto3',1);
+INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto4','Bella foto4','https://picsum.photos/200','#foto4',1);
+INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto5','Bella foto5','https://picsum.photos/200','#foto5',1);
+INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto6','Bella foto6','https://picsum.photos/200','#foto6',1);
+INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto7','Bella foto7','https://picsum.photos/200','#foto7',1);
+INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto8','Bella foto8','https://picsum.photos/200','#foto8',1);
+INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto9','Bella foto9','https://picsum.photos/200','#foto9',1);
+INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto10','Bella foto10','https://picsum.photos/200','#foto10',1);
