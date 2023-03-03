@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tutti i commenti</title>
+<link th:replace="~{fragments :: bootstrap_myStyle}"></link>
+</head>
+<body>
+
+	<div class="container">
+		<div
+			th:replace="~{fragments :: navBar(pagina='commenti',paginaVista='index-com')}"></div>
+		<h2>Lista Commenti</h2>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item d-xl-flex justify-content-between"
+				th:each="c :${listaCommenti}">Autore: [[${c.nome}]]<br>
+				Testo: [[${c.descrizione}]] <br>
+		
+			</small> <a th:href="@{'foto/'+${c.getFoto.getId}}"><small class="text-muted">Dettaglio foto commentata:
+									<i class="fa-solid fa-circle-info"></i></a></small>
+
+			</li>
+
+		</ul>
+	</div>
+
+
+	<div th:replace="~{fragments :: footer}"></div>
+	<div th:replace="~{fragments :: script}"></div>
+</body>
+</html>

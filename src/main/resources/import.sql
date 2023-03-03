@@ -16,6 +16,6 @@ INSERT INTO fotoalbum.foto_categorie (foto_id,categorie_id) VALUES (1,1);
 INSERT INTO fotoalbum.foto_categorie (foto_id,categorie_id) VALUES (1,2);
 INSERT INTO fotoalbum.foto_categorie (foto_id,categorie_id) VALUES (2,1);
 
-INSERT INTO fotoalbum.commento (descrizione,nome,foto_id) VALUES ('Una foto molto bella complimenti-1','Utente Reale',1);
-INSERT INTO fotoalbum.commento (descrizione,nome,foto_id) VALUES ('Una foto molto bella complimenti-1-bis','Utente Reale',1);
-INSERT INTO fotoalbum.commento (descrizione,nome,foto_id) VALUES ('Una foto molto bella complimenti-2','Utente Reale',2);
+INSERT INTO fotoalbum.commento (descrizione,nome,foto_id) VALUES ('Una foto molto bella complimenti-1','Utente Reale-A',1);
+INSERT INTO fotoalbum.commento (descrizione,nome,foto_id) VALUES ('Una foto molto bella complimenti-1-bis','Utente Reale-B',1);
+INSERT INTO fotoalbum.commento (descrizione,nome,foto_id) VALUES ('Una foto molto bella complimenti-2','Utente Reale-C',2);
