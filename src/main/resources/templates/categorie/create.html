@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Crea la tua Categoria</title>
+<link th:replace="~{fragments :: bootstrap_myStyle}"></link>
+</head>
+<body>
+
+	<div class="container">
+		<div
+			th:replace="~{fragments :: navBar(pagina='categorie',paginaVista='create-cat')}"></div>
+		<h2>Crea la tua categoria</h2>
+		<form id="categoria-form" th:object=${categoria}
+			th:action="@{/categorie/create}" method="POST">
+
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="basic-addon1">Nome</span> <input
+					id="nome" th:field="*{nome}" th:errorClass="is-invalid" type="text"
+					class="form-control" placeholder="Nome della Categoria"
+					aria-label="Username" aria-describedby="basic-addon1">
+				<div th:if="${#fields.hasErrors('nome')}" class="invalid-feedback">
+					<ul>
+						<li th:each="err: ${#fields.errors('nome')}" th:text="${err}">
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="mt-3">
+				<button class="btn btn-dark" type="submit">Crea la tua
+					categoria!</button>
+				<a class="btn btn-dark" th:href="@{/categorie}"> Annulla</a>
+			</div>
+		</form>
+	</div>
+
+
+	<div th:replace="~{fragments :: footer}"></div>
+	<div th:replace="~{fragments :: script}"></div>
+</body>
+</html>

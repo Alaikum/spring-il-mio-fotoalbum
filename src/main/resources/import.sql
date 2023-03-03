@@ -8,3 +8,14 @@ INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto7'
 INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto8','Bella foto8','https://picsum.photos/1200','#foto8',0);
 INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto9','Bella foto9','https://picsum.photos/1200','#foto9',1);
 INSERT INTO fotoalbum.foto (titolo,descrizione,url,tag,visibile) VALUES ('Foto10','Bella foto10','https://picsum.photos/1200','#foto10',0);
+
+INSERT INTO fotoalbum.categoria (nome) VALUES ('categoria-1');
+INSERT INTO fotoalbum.categoria (nome) VALUES ('categoria-2');
+
+INSERT INTO fotoalbum.foto_categorie (foto_id,categorie_id) VALUES (1,1);
+INSERT INTO fotoalbum.foto_categorie (foto_id,categorie_id) VALUES (1,2);
+INSERT INTO fotoalbum.foto_categorie (foto_id,categorie_id) VALUES (2,1);
+
+INSERT INTO fotoalbum.commento (descrizione,nome,foto_id) VALUES ('Una foto molto bella complimenti-1','Utente Reale',1);
+INSERT INTO fotoalbum.commento (descrizione,nome,foto_id) VALUES ('Una foto molto bella complimenti-1-bis','Utente Reale',1);
+INSERT INTO fotoalbum.commento (descrizione,nome,foto_id) VALUES ('Una foto molto bella complimenti-2','Utente Reale',2);

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Categorie</title>
+<link th:replace="~{fragments :: bootstrap_myStyle}"></link>
+</head>
+<body>
+
+	<div class="container">
+		<div
+			th:replace="~{fragments :: navBar(pagina='categorie',paginaVista='index-cat')}"></div>
+		<h2>Lista Categorie</h2>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item d-xl-flex justify-content-between" th:each="c :${elencoCategorie}">[[${c.nome}]]
+			<form action="#" th:action="@{'/categorie/delete/{id}'(id=${c.id})}"
+								method="post">
+								<button class="text-muted delete__button" type="submit" id="submitButton">
+									Elimina <i class="fas fa-trash-alt"> </i>
+								</button>
+							</form>
+			</li>
+
+		</ul>
+	</div>
+
+
+	<div th:replace="~{fragments :: footer}"></div>
+	<div th:replace="~{fragments :: script}"></div>
+</body>
+</html>

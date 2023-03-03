@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.corsojava.fotoalbum.model.Categoria;
 import com.corsojava.fotoalbum.model.Foto;
+import com.corsojava.fotoalbum.repository.CategoriaRepository;
 import com.corsojava.fotoalbum.repository.FotoRepository;
 
 import jakarta.validation.Valid;
@@ -24,6 +26,8 @@ public class FotoController {
 
 	@Autowired
 	FotoRepository fotoRepository;
+	@Autowired
+	CategoriaRepository categoriaRepository;
 
 	@GetMapping
 	public String index(Model model) {
@@ -52,17 +56,50 @@ public class FotoController {
 		foto.setUrl("https://picsum.photos/1200");
 		model.addAttribute("foto", foto);// foto di default
 
+		List<Categoria> listaCategorie = categoriaRepository.findAll();
+		model.addAttribute("listaCategorie", listaCategorie);
 		return "foto/create";
 	}
 
 	// CREATE POST MAPPING
 	@PostMapping("/create")
 	public String store(@Valid @ModelAttribute("foto") Foto formFoto, BindingResult bindingResult, Model model) {
+		List<Categoria> listaCategorie = categoriaRepository.findAll();
+		model.addAttribute("listaCategorie", listaCategorie);
 		// validazione
 		if (bindingResult.hasErrors()) {
 			return "/foto/create";
 		}
 		fotoRepository.save(formFoto);
+		return "redirect:/foto";
+	}
+
+	// EDIT
+	@GetMapping("/edit/{id}")
+	public String edit(@PathVariable("id") Long id, Model model) {
+		Foto foto = fotoRepository.getReferenceById(id);
+		List<Categoria> listaCategorie = categoriaRepository.findAll();
+		model.addAttribute("listaCategorie", listaCategorie);
+		model.addAttribute("foto", foto);
+		return "foto/edit";
+	}
+
+	@PostMapping("/edit/{id}")
+	public String update(@Valid @ModelAttribute("foto") Foto formFoto, BindingResult bindingResult, Model model) {
+		List<Categoria> listaCategorie = categoriaRepository.findAll();
+		model.addAttribute("listaCategorie", listaCategorie);
+		if (bindingResult.hasErrors()) {
+			return "/foto/create";
+		}
+		fotoRepository.save(formFoto);
+		return "redirect:/foto";
+	}
+
+	// DELETE
+	@PostMapping("/delete/{id}")
+	public String delete(@PathVariable("id") Long id) {
+
+		fotoRepository.deleteById(id);
 		return "redirect:/foto";
 	}
 

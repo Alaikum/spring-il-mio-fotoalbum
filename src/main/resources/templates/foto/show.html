@@ -8,7 +8,7 @@
 <body>
 
 	<div class="container">
-		<div th:replace="~{fragments :: navBar(pagina='foto')}"></div>
+		<div th:replace="~{fragments :: navBar(pagina='foto',paginaVista='show')}"></div>
 		<h2>Dettaglio Foto</h2>
 		<div class="">
 			<div class="">
@@ -26,6 +26,12 @@
 								th:if="!${foto.visibile}"></i>
 
 						</p>
+						<p class="card-text"  >
+								Categorie: 
+								<i th:each="c: ${foto.categorie}">[[${c.nome}]] </i> 
+								<i th:if="${foto.categorie.size<1}">Nessuna Categoria Salvata </i> 
+									
+							</p>
 					</div>
 					<div class="card-footer d-flex justify-content-between">
 						<small class="text-muted">Tag: [[${{foto.tag}}]]</small> 

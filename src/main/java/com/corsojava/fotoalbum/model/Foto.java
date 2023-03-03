@@ -1,10 +1,17 @@
 package com.corsojava.fotoalbum.model;
 
+import java.util.List;
+
+
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -46,13 +53,45 @@ public class Foto {
 	
 	@NotNull(message = "Attenzione!Campo nullo!")
 	private Boolean visibile;
+	
+	
+	@OneToMany(mappedBy = "foto", cascade=CascadeType.ALL)
+	private List<Commento> commenti;
+	
+	@ManyToMany
+	private List<Categoria> categorie;
 
 
 	
 	//SETTER GETTER
+	
 
 	public Long getId() {
 		return id;
+	}
+
+
+
+	public List<Commento> getCommenti() {
+		return commenti;
+	}
+
+
+
+	public void setCommenti(List<Commento> commenti) {
+		this.commenti = commenti;
+	}
+
+
+
+	public List<Categoria> getCategorie() {
+		return categorie;
+	}
+
+
+
+	public void setCategorie(List<Categoria> categorie) {
+		this.categorie = categorie;
 	}
 
 

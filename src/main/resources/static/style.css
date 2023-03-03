@@ -6,8 +6,9 @@
 	box-sizing: border-box;
 	font-family: 'Goldman', cursive;
 }
-img{
-	max-width:100%;
+
+img {
+	max-width: 100%;
 }
 
 body {
@@ -18,8 +19,8 @@ ul, ol, li, menu {
 	list-style: none;
 }
 
-span{
-	color:red;
+span {
+	color: red;
 }
 
 .nav__style {
@@ -28,4 +29,28 @@ span{
 
 .card {
 	background-color: beige;
+}
+
+.delete__button {
+	background: none;
+	font-size: .875em !important;
+	text-decoration: underline;
+	text-decoration-color : blue;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	text-decoration-color: blue;
+}
+
+.non__visibile{
+	filter: grayscale(100%);
+}
+
+.testo__non__visibile{
+	transform: rotate(45deg);
+	width: 100%;
+	top:50%;
+
 }

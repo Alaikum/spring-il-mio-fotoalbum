@@ -31,7 +31,7 @@
 
 	<!-- NavBar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light nav__style"
-		th:fragment="navBar (pagina)">
+		th:fragment="navBar (pagina, paginaVista)">
 		<div class="container-fluid">
 			<li class="nav-item dropdown" 
 			 th:classappend="${pagina}=='foto' ? text-primary : ''"><a
@@ -39,8 +39,10 @@
 				id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
 				aria-expanded="false">Menù Delle Foto</a>
 				<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<li><a class="dropdown-item" th:href="@{/foto}">Pagina Principale</a></li>
-					<li><a class="dropdown-item" th:href="@{/foto/create}">Carica Foto</a></li>
+					<li><a class="dropdown-item" th:href="@{/foto}" 
+					th:classappend="${paginaVista}=='index' ? text-primary : ''">Lista Foto </a></li>
+					<li><a class="dropdown-item" th:href="@{/foto/create}"
+					th:classappend="${paginaVista}=='create' ? text-primary : ''">Carica Foto</a></li>
 					<li><a class="dropdown-item" href="#">Something else here</a></li>
 				</ul></li>
 			<li class="nav-item dropdown"
@@ -49,8 +51,10 @@
 				id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
 				aria-expanded="false"> Categorie </a>
 				<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<li><a class="dropdown-item" href="#">Action</a></li>
-					<li><a class="dropdown-item" href="#">Another action</a></li>
+					<li><a class="dropdown-item" th:href="@{/categorie}"
+					th:classappend="${paginaVista}=='index-cat' ? text-primary : ''">Lista Categorie</a></li>
+					<li><a class="dropdown-item" th:href="@{/categorie/create}"
+					th:classappend="${paginaVista}=='create-cat' ? text-primary : ''">Crea Categoria</a></li>
 					<li><a class="dropdown-item" href="#">Something else here</a></li>
 				</ul></li>
 			<li class="nav-item dropdown"
@@ -59,8 +63,10 @@
 				id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
 				aria-expanded="false"> Commenti </a>
 				<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<li><a class="dropdown-item" href="#">Action</a></li>
-					<li><a class="dropdown-item" href="#">Another action</a></li>
+					<li><a class="dropdown-item" href="#"
+					th:classappend="${paginaVista}=='index-com' ? text-primary : ''">Lista Commenti</a></li>
+					<li><a class="dropdown-item" href="#"
+					th:classappend="${paginaVista}=='create-com' ? text-primary : ''">Crea Commenti</a></li>
 					<li><a class="dropdown-item" href="#">Something else here</a></li>
 				</ul></li>
 		</div>

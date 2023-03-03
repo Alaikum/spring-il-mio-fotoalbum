@@ -2,18 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Carica la tua Foto</title>
+<title>Modifica la tua Foto</title>
 <link th:replace="~{fragments :: bootstrap_myStyle}"></link>
 </head>
 <body>
 
 	<div class="container">
 		<div
-			th:replace="~{fragments :: navBar(pagina='foto',paginaVista='create')}"></div>
-		<h2>Carica Foto</h2>
+			th:replace="~{fragments :: navBar(pagina='foto',paginaVista='edit')}"></div>
+		<h2>Modifica Foto</h2>
 
-		<form id="foto-form" th:object=${foto} th:action="@{/foto/create}"
-			method="POST">
+		<form id="foto-form" th:object=${foto}
+			th:action="@{/foto/edit/{id}(id=${foto.id})}" method="POST">
 
 			<div class="input-group mb-3">
 				<span class="input-group-text" id="basic-addon1">Titolo</span> <input
@@ -85,6 +85,7 @@
 				</div>
 			</div>
 
+
 			<div class="">
 				<h3>Categorie</h3>
 				<div class="d-flex justify-content-between">
@@ -98,8 +99,9 @@
 
 
 
+
 			<div class="mt-3">
-				<button class="btn btn-dark" type="submit">Carica la tua
+				<button class="btn btn-dark" type="submit">Modifica la tua
 					foto!</button>
 				<a class="btn btn-dark" th:href="@{/foto}"> Annulla</a>
 			</div>
