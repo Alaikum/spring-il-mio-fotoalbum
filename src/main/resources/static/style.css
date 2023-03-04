@@ -44,6 +44,12 @@ span {
 	text-decoration-color: blue;
 }
 
+.a__frontend{
+	    color: currentColor;
+    text-decoration: none;
+      
+}
+
 .non__visibile{
 	filter: grayscale(100%);
 }

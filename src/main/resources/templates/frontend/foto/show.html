@@ -1,23 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
-    integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+        integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="/style/show.css">
     <link rel="stylesheet" href="/style.css">
     <title>Dettaglio Foto</title>
 </head>
+
 <body>
-   Show
-   <h1>we</h1>
+    <a href="/foto">Torna al backend</a>
+    <a href="/frontend">Torna al Frontend</a>
+    <div class="container">
+
+        <h2>Dettaglio Foto</h2>
+        <div class="">
+            <div class="">
+                <div class="card mb-3">
+                    <img src="" class="card-img-top" alt="..." id="foto__foto">
+                    <div class="card-body">
+                        <h5 class="card-title" id="foto__titolo"></h5>
+                        <p class="card-text">
+                            Descrizione: <br> <i id="foto__descrizione"></i>
+                        </p>
+
+                        <p class="card-text">
+                            Categorie: <i id="c__nome"> </i>
+                        </p>
+
+                        <div class="card-text">
+                            Commenti:
+                            <ul id="commenti">
+
+                            </ul>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <small class="text-muted" id="foto__tag">Tag: </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/script/show.js"></script>
 </body>
+
 </html>
