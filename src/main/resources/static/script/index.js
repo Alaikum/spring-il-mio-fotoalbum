@@ -1,9 +1,20 @@
 console.log("index foto")
+let axiosUrl="http://localhost:8080/api/foto"
+listaFoto(axiosUrl)
+let filter=""
+function search(){
+	let search=document.querySelector("#select__search").value
+	let searchValue=document.querySelector("#value__search").value
+	console.log(search,"valora: ",searchValue)
+	filter=axiosUrl+"?"+search+"="+searchValue
+	console.log(filter)
+	document.querySelector('#lista').innerHTML=""
+	listaFoto(filter)
+	
+}
 
-listaFoto()
-
-function listaFoto(){
-    axios.get("http://localhost:8080/api/foto").then((res)=>{
+function listaFoto(url){
+    axios.get(url).then((res)=>{
         console.log(res.data)
         res.data.forEach(f => {
 			
