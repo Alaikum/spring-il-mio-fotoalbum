@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corsojava.fotoalbum.model.Categoria;
 import com.corsojava.fotoalbum.model.Foto;
@@ -30,9 +31,20 @@ public class FotoController {
 	CategoriaRepository categoriaRepository;
 
 	@GetMapping
-	public String index(Model model) {
+	public String index(@RequestParam(name = "titolo", required = false) String titolo,
+			@RequestParam(name = "tag", required = false) String tag,
+			Model model) {
 		List<Foto> elencoFoto;
-		elencoFoto = fotoRepository.findAll();
+		if (titolo != null && !titolo.isEmpty()) {
+			elencoFoto = fotoRepository.findByTitoloLike("%" + titolo + "%");
+		}else if (tag != null && !tag.isEmpty()) {
+			elencoFoto = fotoRepository.findByTagLike("%" + tag + "%");
+		}
+				else {
+			elencoFoto = fotoRepository.findAll();
+		}
+		
+		
 		model.addAttribute("elencoFoto", elencoFoto);
 
 		return "foto/index";

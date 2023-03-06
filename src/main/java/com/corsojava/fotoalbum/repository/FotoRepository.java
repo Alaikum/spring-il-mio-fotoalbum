@@ -10,5 +10,6 @@ public interface FotoRepository extends JpaRepository<Foto, Long> {
 
 	
 	List<Foto> findByTitoloLike(String titolo);
+	List<Foto> findByTagLike(String tag);
 	
 }

@@ -20,26 +20,29 @@ public class SecurityConfiguration {
 		http.authorizeHttpRequests()
 
 				.requestMatchers("/foto/create", "/foto/edit/**").hasAuthority("ADMIN") // per creare o modificare una
-																							// pizza bisogna essere
-																							// ADMIN
+																						// pizza bisogna essere
+																						// ADMIN
 				.requestMatchers(HttpMethod.POST, "/foto/**").hasAuthority("ADMIN") // per fare il POST su /pizze
-																						// (richiesto per eliminare una
-																						// pizza) bisogna essere ADMIN
+																					// (richiesto per eliminare una
+																					// pizza) bisogna essere ADMIN
 				.requestMatchers("/commenti", "/commenti/**").hasAuthority("ADMIN") // per accedere agli
-																							// ingredienti bisogna
-																							// essere ADMIN
-				.requestMatchers("/categorie", "/categorie/**").hasAuthority("ADMIN") // per accedere alle offerte bisogna
+																					// ingredienti bisogna
 																					// essere ADMIN
+				.requestMatchers("/categorie", "/categorie/**").hasAuthority("ADMIN") // per accedere alle offerte
+																						// bisogna
+																						// essere ADMIN
 				.requestMatchers("/foto", "/foto/**").hasAnyAuthority("USER", "ADMIN") // per accedere all'elenco
-																							// delle pizze (/pizze) o
-																							// dettaglio pizza
-				.requestMatchers("/frontend/show").permitAll() 																			// (/pizze/**) bisogna esser
-				.requestMatchers("/frontend").permitAll() 																		// USER o ADMIN
+																						// delle pizze (/pizze) o
+																						// dettaglio pizza
+																						// (/pizze/**) bisogna esser
+																						// USER o ADMIN
 				.requestMatchers("/**").permitAll() // chiunque può accedere alla Home
 				.and().formLogin() // abilita il supporto al form login (auto generato)
-				.and().logout(); // abilita il supporto al form logout (auto generato)
-			//	.and().exceptionHandling().accessDeniedPage("/access-denied.html"); // pagina personalizzata in caso di
-																					// accesso negato
+				.and().logout() // abilita il supporto al form logout (auto generato)
+				.and().csrf().disable();
+		// .and().exceptionHandling().accessDeniedPage("/access-denied.html"); // pagina
+		// personalizzata in caso di
+		// accesso negato
 
 		return http.build();
 	}

@@ -10,6 +10,16 @@
 	<div class="container">
 		<div
 			th:replace="~{fragments :: navBar(pagina='foto',paginaVista='index')}"></div>
+			<form>
+			<label for="fname">Cerca Foto per Titolo:</label> <input
+				type="text" name="titolo"> <input type="submit"
+				value="Cerca">
+		</form>
+		<form>
+			<label for="fname">Cerca Foto per Tag:</label> <input
+				type="text" name="tag"> <input type="submit"
+				value="Cerca">
+		</form>
 		<h2>Lista Foto</h2>
 		<div class="card-group ">
 			<div class="row row-cols-md-3 row-cols-1 g-4">

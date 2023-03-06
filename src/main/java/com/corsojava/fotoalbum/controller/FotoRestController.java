@@ -58,7 +58,7 @@ public class FotoRestController {
 			Foto foto = result.get();
 			commento.setFoto(foto);
 			commentoRepository.save(commento);
-			return ResponseEntity.ok("Commento aggiunto con succetto");
+			return ResponseEntity.ok("Commento aggiunto con successo");
 		} else {
 			return ResponseEntity.notFound().build();
 		}
