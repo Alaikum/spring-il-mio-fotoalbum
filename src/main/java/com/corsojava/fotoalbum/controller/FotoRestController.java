@@ -9,11 +9,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.corsojava.fotoalbum.model.Commento;
 import com.corsojava.fotoalbum.model.Foto;
+import com.corsojava.fotoalbum.repository.CommentoRepository;
 import com.corsojava.fotoalbum.repository.FotoRepository;
+
+import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin
@@ -22,6 +28,9 @@ public class FotoRestController {
 	
 	@Autowired
 	FotoRepository fotoRepository;
+	
+	@Autowired
+	CommentoRepository commentoRepository;
 	
 	//INDEX
 	@GetMapping()
@@ -40,5 +49,19 @@ public class FotoRestController {
 		}
 	}
 	
+	
+	//CREA COMMENTI
+	@PostMapping("/{id}/commenti")
+	public ResponseEntity<String> addComment(@Valid @PathVariable("id") Long id, @RequestBody Commento commento) {
+		Optional<Foto> result = fotoRepository.findById(id);
+		if (result.isPresent()) {
+			Foto foto = result.get();
+			commento.setFoto(foto);
+			commentoRepository.save(commento);
+			return ResponseEntity.ok("Commento aggiunto con succetto");
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 
 }

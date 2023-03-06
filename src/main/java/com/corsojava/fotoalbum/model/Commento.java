@@ -30,6 +30,7 @@ public class Commento {
 	@Column(columnDefinition = "TEXT")
 	private String descrizione;
 	
+	
 	@ManyToOne
 	@JsonBackReference
 	private Foto foto;

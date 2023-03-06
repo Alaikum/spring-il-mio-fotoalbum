@@ -25,6 +25,9 @@
                 <div class="card mb-3">
                     <img src="" class="card-img-top" alt="..." id="foto__foto">
                     <div class="card-body">
+                        <div class="card-footer d-flex justify-content-between">
+                            <small class="text-muted" id="foto__tag">Tag: </small>
+                        </div>
                         <h5 class="card-title" id="foto__titolo"></h5>
                         <p class="card-text">
                             Descrizione: <br> <i id="foto__descrizione"></i>
@@ -39,10 +42,48 @@
                             <ul id="commenti">
 
                             </ul>
+
+
+
+
+                            <form id="commento-form"  onsubmit="creaCommento(event)">
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Nome</span> <input id="nome"
+                                        type="text" class="form-control" placeholder="Nome autore del commento"
+                                        aria-label="Username" aria-describedby="basic-addon1">
+                                    <div class="invalid-feedback">
+                                        <ul id="nome__err">
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Testo commento</span>
+                                    <input id="descrizione" type="text" class="form-control"
+                                        placeholder="Commento Alla Foto" aria-label="Username"
+                                        aria-describedby="basic-addon1">
+                                    <div class="invalid-feedback">
+                                        <ul id="descrizione__err">
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                                <div class="mt-3">
+                                    <button class="btn btn-dark" type="submit">Carica il tuo commento!</button>
+                                    <a class="btn btn-dark" href="#"> Annulla</a>
+                                </div>
+
+
+                            </form>
+                           
+                         
+
                         </div>
-                        <div class="card-footer d-flex justify-content-between">
-                            <small class="text-muted" id="foto__tag">Tag: </small>
-                        </div>
+
                     </div>
                 </div>
             </div>
