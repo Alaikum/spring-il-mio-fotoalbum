@@ -38,7 +38,7 @@ public class SecurityConfiguration {
 																						// USER o ADMIN
 				.requestMatchers("/**").permitAll() // chiunque può accedere alla Home
 				.and().formLogin() // abilita il supporto al form login (auto generato)
-				.and().logout() // abilita il supporto al form logout (auto generato)
+				.loginPage("/login").permitAll().and().logout() // abilita il supporto al form logout (auto generato)
 				.and().csrf().disable();
 		// .and().exceptionHandling().accessDeniedPage("/access-denied.html"); // pagina
 		// personalizzata in caso di
@@ -68,5 +68,7 @@ public class SecurityConfiguration {
 
 		return authProvider;
 	}
+	
+	
 
 }
